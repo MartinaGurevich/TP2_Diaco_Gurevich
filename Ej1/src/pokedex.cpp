@@ -46,7 +46,7 @@ void Pokemon::mostrarTodos()const{
 }
 
 void serializar(const string& file){
-    for(cont auto& pokemon : info){
+    for(const auto& pokemon : info){
         info_pokemon = info[pokemon];
 
         //serializo el pokemon
