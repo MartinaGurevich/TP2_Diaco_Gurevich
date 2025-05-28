@@ -10,8 +10,9 @@ private:
     int experiencia;
 public:
     Pokemon(string nombre, int experiencia);
-    void getNombre();
-    void getExperiencia();
+    string getNombre() const;
+    int getExperiencia() const;
+    bool operator==(const Pokemon& other)const;
     ~Pokemon()= default;
 };
 

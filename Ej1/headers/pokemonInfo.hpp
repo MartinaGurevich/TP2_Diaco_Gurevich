@@ -10,7 +10,7 @@ class PokemonInfo
 {
 private:
    string tipo;
-   string descrpcion;
+   string descripcion;
    map<string, int> ataquesDisponiblesPorNivel;
    map<int,int> experienciaProximoNivel;
 
@@ -20,10 +20,10 @@ public:
         map<int,int> experienciaProximoNivel
     );
 
-    void getTipo();
-    void getDescripcion();
-    void getAtaquedispoporNivel();
-    void getExperienciaProxNivel();
+    string getTipo() const;
+    string getDescripcion() const;
+    map<string,int> getAtaquedispoporNivel() const;
+    map<int,int> getExperienciaProxNivel() const;
 
     ~PokemonInfo()=default;
 };
