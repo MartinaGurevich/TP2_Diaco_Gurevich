@@ -7,7 +7,7 @@
 class PokemonHash{
     public:
         std::size_t operator()(const Pokemon& pokemon) const {
-            return std::hash<std::string>()(pokemon.getName());
+            return std::hash<std::string>()(pokemon.getNombre());
         }
 };
 
