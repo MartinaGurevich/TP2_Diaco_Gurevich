@@ -1,6 +1,7 @@
 #pragma once
 #include <unordered_map>
 #include "pokemon.hpp"
+#include "pokemonInfo.hpp"
 
 //funcion de Hash para el nombre del Pokemon implementada como functor
 
