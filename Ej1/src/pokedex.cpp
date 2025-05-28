@@ -6,7 +6,9 @@
 using namespace std;
 
 //construnctor sobrecargado para serializar
-Pokedex::Pokedex(const string& file) {
+Pokedex::Pokedex(): serializar(false) {}
+
+Pokedex::Pokedex(const string& file): serializar(true) {
     serializar(file);
 }
 
@@ -40,5 +42,23 @@ void Pokemon::mostrarTodos()const{
         cout<<info_pkemon.getDescripcion()<<endl;
         cout<<"Ataques disponibles: "<<to_string(info_pkemon.getAtaquedispoporNivel())<<endl;
         cout<<"Experiencia para el proximo nivel: "<<to_string(info_pkemon.getExperienciaProxNivel())<<endl;
+    }
+}
+
+void serializar(const string& file){
+    for(cont auto& pokemon : info){
+        info_pokemon = info[pokemon];
+
+        //serializo el pokemon
+        
+        //serializo el nombre
+        size_t tamaño_nombre = pokemon.getNombre().size();
+        file.write(reinterpret_cast<const char*>(&tamaño_nombre), sizeof(tamaño_nombre));
+        // file.write(pokemon.gentNombre().c_str(), tamaño_nombre);
+
+        //serializar experiencia
+        file.write(reinterpret_cast<const char*>(&pokemon.getExperiencia()), sizeof(pokemon.getExperiencia()))
+
+        //selializo la info
     }
 }

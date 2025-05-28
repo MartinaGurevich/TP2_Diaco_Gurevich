@@ -15,10 +15,11 @@ class PokemonHash{
 class Pokedex{
     private:
         std::unorder_map<Pokemon, PokemonInfo, PokemonHash> info; //completar
+        bool serializar;
     
     public:
         //constructor
-        Pokedex() = default;
+        Pokedex();
         Pokedex(const std::string& file); //sobrecarga de sontructor para serializar
  
         
