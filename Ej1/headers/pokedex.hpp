@@ -1,6 +1,7 @@
 #pragma once
 #include <unordered_map>
 
+
 class Pokedex{
     private:
         std::unorder_map<Pokemon, PokemonInfo> info; //completar
