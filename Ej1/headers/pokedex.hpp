@@ -9,7 +9,7 @@ class Pokedex{
         //constructor
         Pokedex() = 
         Pokedex(const std::string& file); //sobrecarga de sontructor para serializar
-
+ 
         //sobrecarga del Hash
         //ver si pasar a privado
 
