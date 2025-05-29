@@ -11,10 +11,8 @@ size_t PokemonHash::operator()(const Pokemon& pokemon) const {
 }
 
 //construnctor sobrecargado para serializar
-Pokedex::Pokedex(): serializar_(false) {}
-
-Pokedex::Pokedex(const string& fileName): serializar_(true) {
-    //Pokedex::serializar(fileName); //HAY QUE VER COMO PASAR BIEN LSO DATOS
+Pokedex::Pokedex(const string& fileName_): fileName(fileName_){
+    //Pokedex::cargarArchivo(fileName); //HAY QUE VER COMO PASAR BIEN LSO DATOS
 }
 
 //metodos
@@ -55,22 +53,22 @@ void Pokedex::mostrarTodos()const{
     }
 }
 
-void Pokedex::serializar(ofstream& outFile) const{
-    for(const auto& pokemon_info : info){
-        PokemonInfo info_pokemon = pokemon_info.second;
-        Pokemon pokemon = pokemon_info.first;
+// void Pokedex::cargarArchivo(const string& fileName) const{
+//     for(const auto& pokemon_info : info){
+//         PokemonInfo info_pokemon = pokemon_info.second;
+//         Pokemon pokemon = pokemon_info.first;
 
-        //serializo el pokemon
-        
-        //serializo el nombre
-        size_t tamaño_nombre = pokemon.getNombre().size();
-        outFile.write(reinterpret_cast<const char*>(&tamaño_nombre), sizeof(tamaño_nombre));
-        // file.write(pokemon.gentNombre().c_str(), tamaño_nombre);
+//         //serializo el pokemon
+//         //PASAR ESTO A UN SERIALIZAR PARA POKEMON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         //serializo el nombre
+//         size_t tamaño_nombre = pokemon.getNombre().size();
+//         outFile.write(reinterpret_cast<const char*>(&tamaño_nombre), sizeof(tamaño_nombre));
+//         // file.write(pokemon.gentNombre().c_str(), tamaño_nombre);
 
-        //serializar experiencia
-        int experiencia = pokemon.getExperiencia();
-        outFile.write(reinterpret_cast<const char*>(&experiencia), sizeof(experiencia));
+//         //serializar experiencia
+//         int experiencia = pokemon.getExperiencia();
+//         outFile.write(reinterpret_cast<const char*>(&experiencia), sizeof(experiencia));
 
-        //selializo la info
-    }
-}
+//         //selializo la info
+//     }
+// }

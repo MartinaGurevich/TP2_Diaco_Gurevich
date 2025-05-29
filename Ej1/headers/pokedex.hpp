@@ -1,6 +1,5 @@
 #pragma once
 #include <unordered_map>
-#include <fstream>
 #include "pokemon.hpp"
 #include "pokemonInfo.hpp"
 
@@ -14,12 +13,12 @@ class PokemonHash{
 class Pokedex{
     private:
         std::unordered_map<Pokemon, PokemonInfo, PokemonHash> info; //completar
-        bool serializar_;
+        std::string fileName; //nombre del archivo para serializar
     
     public:
         //constructor
-        Pokedex();
-        Pokedex(const std::string& fileName); //sobrecarga de sontructor para serializar
+        Pokedex() = default;
+        Pokedex(const std::string& fileName_); //sobrecarga de sontructor para serializar
  
         
         //metodos
@@ -28,8 +27,8 @@ class Pokedex{
         void mostrar(const Pokemon& pokemon) const; //ver si se pasa por parametro
         void mostrarTodos() const;
         
-        void serializar(std::ofstream& outFile) const; //serializa el pokedex a un archivo
-        void deserializar(std::ifstream& inFile); //deserializa el pokedex desde un archivo
+        void cargarArchivo(const std::string& fileName) const; //serializa el pokedex a un archivo
+        void descargarArchivo(const std::string& fileName); //deserializa el pokedex desde un archivo
         
         //destructor
         ~Pokedex() = default;
