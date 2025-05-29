@@ -1,8 +1,12 @@
-#include "pokemon.hpp"
+#include "../headers/pokemon.hpp"
+#include <string>
 
+using namespace std;
 
-Pokemon:: Pokemon(string nombre, int experiencia): nombre(nombre), experiencia(experiencia){};
+//constructor
+Pokemon:: Pokemon(const string& nombre_, int experiencia_): nombre(nombre_), experiencia(experiencia_){};
 
+//getters
 string Pokemon:: getNombre() const {
     return nombre;
 }
@@ -12,8 +16,8 @@ int Pokemon:: getExperiencia() const{
 }
 
 //sobrecarga del operador ==, compara nombre de pokemon.
-bool Pokemon:: operator ==(const Pokemon& other) const{
-    return nombre== other.getNombre();
+bool Pokemon::operator==(const Pokemon& other) const{
+    return nombre == other.getNombre();
 }
 
 

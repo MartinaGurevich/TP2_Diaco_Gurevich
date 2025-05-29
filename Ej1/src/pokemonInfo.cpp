@@ -1,12 +1,16 @@
-#include "pokemonInfo.hpp"
+#include "../headers/pokemonInfo.hpp>"
+#include <string>
 
-PokemonInfo:: PokemonInfo(string tipo, string descripcion, 
-        map<string, int> ataquesDisponiblesPorNivel,
-        map<int,int> experienciaProximoNivel): 
-        tipo(tipo), 
-        descripcion(descripcion), 
-        ataquesDisponiblesPorNivel(ataquesDisponiblesPorNivel),
-        experienciaProximoNivel(experienciaProximoNivel){};
+using namespace std;
+
+PokemonInfo::PokemonInfo(const string& tipo_, const string& descripcion_, 
+        map<string, int> ataquesDisponiblesPorNivel_,
+        map<int,int> experienciaProximoNivel_):
+        
+        tipo(tipo_), 
+        descripcion(descripcion_), 
+        ataquesDisponiblesPorNivel(ataquesDisponiblesPorNivel_),
+        experienciaProximoNivel(experienciaProximoNivel_){};
 
 string PokemonInfo::getTipo() const{
     return tipo;
