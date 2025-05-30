@@ -4,7 +4,7 @@
 using namespace std;
 
 //constructores
-PokemonInfo::PokemonInfo()
+PokemonInfo::PokemonInfo() //este constructor es necesario para poder agregar nuevos (key, valu) al unordered_map
     :tipo(""), descripcion(""), ataques(), experienciaProxNivel() {}
 
 PokemonInfo::PokemonInfo(const string tipo_, const string descripcion_, 
