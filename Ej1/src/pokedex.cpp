@@ -53,22 +53,17 @@ void Pokedex::mostrarTodos()const{
     }
 }
 
-// void Pokedex::cargarArchivo(const string& fileName) const{
-//     for(const auto& pokemon_info : info){
-//         PokemonInfo info_pokemon = pokemon_info.second;
-//         Pokemon pokemon = pokemon_info.first;
+void Pokedex::cargarArchivo(const string& fileName) const{
+    //serializo info
+    ofstream out(fileName, ios::binary)
 
-//         //serializo el pokemon
-//         //PASAR ESTO A UN SERIALIZAR PARA POKEMON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//         //serializo el nombre
-//         size_t tamaño_nombre = pokemon.getNombre().size();
-//         outFile.write(reinterpret_cast<const char*>(&tamaño_nombre), sizeof(tamaño_nombre));
-//         // file.write(pokemon.gentNombre().c_str(), tamaño_nombre);
+    if(out.is_open()){
+        for(const auto& pokemon_info : info){
+            pokemon_info.first.serializarPoke(out)
+            pokemon_info.second.serializarInfo(out)
+        }
+        out.close();
+    }
 
-//         //serializar experiencia
-//         int experiencia = pokemon.getExperiencia();
-//         outFile.write(reinterpret_cast<const char*>(&experiencia), sizeof(experiencia));
-
-//         //selializo la info
-//     }
-// }
+//TERMINAR
+}
