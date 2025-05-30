@@ -24,7 +24,7 @@ bool Pokemon::operator==(const Pokemon& other) const{
 }
 
 //serializar 
-void  Pokemon:: serializarPoke(ofstream& out)const{
+void Pokemon::serializarPoke(ofstream& out)const{
     //serializo el nombre
     size_t tamaño_nombre = nombre.size();
     out.write(reinterpret_cast<const char*>(&tamaño_nombre), sizeof(tamaño_nombre));
@@ -34,7 +34,7 @@ void  Pokemon:: serializarPoke(ofstream& out)const{
     out.write(reinterpret_cast<const char*>(&experiencia), sizeof(experiencia));
 }
 
-void Pokemon:: deserializar(ifstream& in){
+void Pokemon::deserializarPoke(ifstream& in){
     //nombre
     size_t nombreSize;
     in.read(reinterpret_cast<char*>(&nombreSize), sizeof(nombreSize));

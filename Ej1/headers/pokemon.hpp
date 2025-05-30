@@ -22,7 +22,7 @@ class Pokemon{
 
         //serializar y deserializar
         void serializarPoke(ofstream& out) const;
-        void deserializar (ifstream& in);
+        void deserializarPoke (ifstream& in);
         
         //destructor
         ~Pokemon()= default;
