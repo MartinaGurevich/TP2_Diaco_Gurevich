@@ -2,6 +2,8 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -10,8 +12,8 @@ class PokemonInfo{
     private:
         string tipo;
         string descripcion;
-        map<string, int> ataques; //considerar unordered_map
-        map<int,int> experienciaProxNivel; //considerar vector
+        unordered_map<string, int> ataques;//cambiamos de map a unordered
+        vector<int> experienciaProxNivel; //cambiamos a vector de map
 
     public:
         //constructor
@@ -25,8 +27,11 @@ class PokemonInfo{
         //getters
         string getTipo() const;
         string getDescripcion() const;
-        map<string,int>& getAtaques();
-        map<int,int>& getExperienciaProxNivel();
+        unordered_map<string, int>& getAtaques();
+        vector<int>& getExperienciaProxNivel();
+
+        void serializarInfo(ofstream& out) const;
+        void deserializarInfo(ifstream& in);
 
         //destructor
         ~PokemonInfo() = default;
