@@ -19,6 +19,10 @@ class Pokemon{
         
         //sobrecarga del operador ==
         bool operator==(const Pokemon& other)const;
+
+        //serializar y deserializar
+        void serializarPoke(ofstream& out) const;
+        void deserializar (ifstream& in);
         
         //destructor
         ~Pokemon()= default;

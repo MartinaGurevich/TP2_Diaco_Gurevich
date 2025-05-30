@@ -1,5 +1,6 @@
 #include "../headers/pokemon.hpp"
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -22,4 +23,26 @@ bool Pokemon::operator==(const Pokemon& other) const{
     return nombre == other.getNombre();
 }
 
+//serializar 
+void  Pokemon:: serializarPoke(ofstream& out)const{
+    //serializo el nombre
+    size_t tamaño_nombre = nombre.size();
+    out.write(reinterpret_cast<const char*>(&tamaño_nombre), sizeof(tamaño_nombre));
+    out.write(nombre.c_str(), tamaño_nombre);
+
+    //serializo Experiencia 
+    out.write(reinterpret_cast<const char*>(&experiencia), sizeof(experiencia));
+}
+
+void Pokemon:: deserializar(ifstream& in){
+    //nombre
+    size_t nombreSize;
+    in.read(reinterpret_cast<char*>(&nombreSize), sizeof(nombreSize));
+    string nombre_= string(nombreSize, '\0');
+    in.read(&(nombre_)[0], nombreSize);
+
+    //experiencia
+    in.read(reinterpret_cast<char*>(&nombre), sizeof(nombre));
+    
+}
 
