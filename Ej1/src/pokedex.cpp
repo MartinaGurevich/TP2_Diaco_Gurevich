@@ -8,12 +8,12 @@ using namespace std;
 //construnctor sobrecargado para serializar
 Pokedex::Pokedex(const string& fileName_): fileName(fileName_){
     //creo el archivo
-    cargarArchivo(); //carga el archivo si existe
+    descargarArchivo(); //descarga el archivo si existe
 }
 
 //metodo privado
 void Pokedex::mostrar_(Pokemon& pokemon, PokemonInfo& info) const {
-    cout<<"\n==="<<pokemon.getNombre()<<"==="<<endl;
+    cout<<"==="<<pokemon.getNombre()<<"==="<<endl;
     cout<<"Tipo: "<<info.getTipo()<<endl;
     cout<<"\""<<info.getDescripcion()<<"\""<<endl;
     cout<<"Experiencia Actual: "<<pokemon.getExperiencia()<<endl;
@@ -29,15 +29,15 @@ void Pokedex::mostrar_(Pokemon& pokemon, PokemonInfo& info) const {
 }
 
 //metodos
-void Pokedex::agregarPokemon(const Pokemon& pokemon, const PokemonInfo& info_pokemon) {
+void Pokedex::agregarPokemon(const Pokemon& pokemon, const PokemonInfo& info_pokemon, bool serializar) {
     info[pokemon] = info_pokemon;
 
     //sobreescribo el archivo cada vez que agrego un pokemon
-    if(!fileName.empty()){
+    if(!fileName.empty() && serializar){
         cargarArchivo(); //carga el archivo
+        cout<< "¡Pokemon " << pokemon.getNombre() << " agregado al Pokedex!" << endl;
     }
 
-    cout<< "¡Pokemon " << pokemon.getNombre() << " agregado al Pokedex!" << endl;
 }
 
 void Pokedex::eliminarPokemon(const Pokemon& pokemon) {
@@ -54,22 +54,27 @@ void Pokedex::eliminarPokemon(const Pokemon& pokemon) {
 void Pokedex::mostrar(const Pokemon& pokemon)const{
     auto it = info.find(pokemon);
     if(it != info.end()){
-        ////muestrainfo
         PokemonInfo info_pokemon = it -> second;
         Pokemon pokemon = it -> first;
         
         mostrar_(pokemon, info_pokemon);
     }else
-    cout<< "¡Pokemon desconocido!"<<endl;
+        cout<< "¡Pokemon desconocido!"<<endl;
 }
 
 void Pokedex::mostrarTodos()const{
-    cout<<"\n======= Pokedex ======="<<endl;
+    if(info.empty()){
+        cout << "¡Pokedex vacía!" << endl;
+        return;
+    }
+    
+    cout<<"======= Pokedex ======="<<endl;
     for(const auto& pokemon_info: info){
         //ver si hacer funcion para no repetir
         PokemonInfo info_pokemon = pokemon_info.second;
         Pokemon pokemon = pokemon_info.first;
         
+        cout<<"-----------------------------------"<<endl;
         mostrar_(pokemon, info_pokemon);
     }
 }
@@ -77,10 +82,10 @@ void Pokedex::mostrarTodos()const{
 void Pokedex::cargarArchivo(){
     ofstream out(fileName, ios::binary);
     
-    size_t infoSize = info.size();
-    out.write(reinterpret_cast<const char*>(&infoSize), sizeof(infoSize));
-
     if(out.is_open()){
+        size_t infoSize = info.size();
+        out.write(reinterpret_cast<const char*>(&infoSize), sizeof(infoSize));
+    
         for(const auto& pokemon_info : info){
             pokemon_info.first.serializarPoke(out);
             pokemon_info.second.serializarInfo(out);
@@ -95,20 +100,20 @@ void Pokedex::cargarArchivo(){
     return;
 }
 
-void Pokedex::descargarArchivo(){
+void Pokedex::descargarArchivo() {
     ifstream in(fileName, ios::binary);
     
-    size_t infoSize = info.size();
-    in.read(reinterpret_cast<char*>(&infoSize), sizeof(infoSize));
-
     if(in.is_open()){
+        size_t infoSize;
+        in.read(reinterpret_cast<char*>(&infoSize), sizeof(infoSize));
+
         for(int i = 0; i < infoSize; ++i){
             Pokemon pokemon("", 0); //creamos un pokemon temporal
             PokemonInfo pokemon_info;
             pokemon.deserializarPoke(in);
             pokemon_info.deserializarInfo(in);
             
-            agregarPokemon(pokemon, pokemon_info); //agregamos al pokedex
+            agregarPokemon(pokemon, pokemon_info, false); //agregamos al pokedex
         }
         in.close();
     }
@@ -120,9 +125,7 @@ void Pokedex::descargarArchivo(){
     return;
 }
 
-//FALTA VER COMO ACTUALIZAR EL ARCHIVO CON CADA CAMBIO
-
-//funcion de hash
+//Hash como functor
 size_t PokemonHash::operator()(const Pokemon& pokemon) const {
     return hash<string>()(pokemon.getNombre());
 }

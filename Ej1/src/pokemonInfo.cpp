@@ -76,29 +76,33 @@ void PokemonInfo::serializarInfo(ofstream& out) const {
 }
 
 void PokemonInfo::deserializarInfo(ifstream& in) {
-    //deserializo el tipo
-    size_t tipoSize = tipo.size();
+    //Deserializo tipo
+    size_t tipoSize;
     in.read(reinterpret_cast<char*>(&tipoSize), sizeof(tipoSize));
-    string tipo_ = string(tipoSize, '\0');
-    in.read(&(tipo_)[0], tipoSize); 
+    tipo.resize(tipoSize);
+    in.read(&tipo[0], tipoSize);
 
-    //deserializo la descripcion
-    size_t descripcionSize = descripcion.size();
+    //Deserializo descripción
+    size_t descripcionSize;
     in.read(reinterpret_cast<char*>(&descripcionSize), sizeof(descripcionSize));
-    string descripcion_ = string(descripcionSize, '\0');
-    in.read(&(descripcion_)[0], descripcionSize); 
+    descripcion.resize(descripcionSize);
+    in.read(&descripcion[0], descripcionSize);
 
-    //deserializo ataques
-    for(auto& ataque_daño: ataques){
-        //deserializo key
-        size_t keySize = ataque_daño.first.size();
+    //Deserializo ataques
+    size_t numAtaques;
+    in.read(reinterpret_cast<char*>(&numAtaques), sizeof(numAtaques));
+    ataques.clear();  // Limpiar por seguridad
+    
+    for (size_t i = 0; i < numAtaques; ++i) {
+        size_t keySize;
         in.read(reinterpret_cast<char*>(&keySize), sizeof(keySize));
-        string key_ = string(keySize, '\0');
-        in.read(&(key_)[0], keySize); 
+        string key(keySize, '\0');
+        in.read(&key[0], keySize);
 
-        //deserializo value
-        in.read(reinterpret_cast<char*>(&ataque_daño.second), sizeof(ataque_daño.second));
+        int valor;
+        in.read(reinterpret_cast<char*>(&valor), sizeof(valor));
 
+        ataques[key] = valor;
     }
 
     //deserializo experiencia para el proximo nivel

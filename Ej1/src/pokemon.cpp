@@ -38,11 +38,11 @@ void Pokemon::deserializarPoke(ifstream& in){
     //nombre
     size_t nombreSize;
     in.read(reinterpret_cast<char*>(&nombreSize), sizeof(nombreSize));
-    string nombre_= string(nombreSize, '\0');
-    in.read(&(nombre_)[0], nombreSize);
+    nombre.resize(nombreSize);
+    in.read(&nombre[0], nombreSize);
 
     //experiencia
-    in.read(reinterpret_cast<char*>(&nombre), sizeof(nombre));
+    in.read(reinterpret_cast<char*>(&experiencia), sizeof(experiencia));
     
 }
 

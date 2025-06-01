@@ -23,7 +23,7 @@ class Pokedex{
  
         
         //metodos
-        void agregarPokemon(const Pokemon& pokemon, const PokemonInfo& info_pokemon);
+        void agregarPokemon(const Pokemon& pokemon, const PokemonInfo& info_pokemon, bool serializar = true);
         void eliminarPokemon(const Pokemon& pokemon);
         void mostrar(const Pokemon& pokemon) const; //ver si se pasa por parametro
         void mostrarTodos() const;
