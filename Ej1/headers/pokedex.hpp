@@ -7,7 +7,7 @@
 class PokemonHash{
     public:
         std::size_t operator()(const Pokemon& pokemon) const;
-};
+}; 
 
 class Pokedex{
     private:
