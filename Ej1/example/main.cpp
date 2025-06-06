@@ -55,4 +55,6 @@ int main(){
 /*
 IMPORTANTE -->
 notyfy_one() notify_all() --> si hay thr dormidos notify one depierta un thr , notyfyall dspierta todos
+
+cuando imprimimos --> hay que ver que se imprima todo bien --> ponemos otro mutex, imprime y lo libera asi no se pisa
 */
