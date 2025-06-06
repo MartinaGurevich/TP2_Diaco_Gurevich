@@ -21,7 +21,7 @@ void Pokedex::mostrar_(Pokemon& pokemon, PokemonInfo& info) const {
     for(const auto& ataque : info.getAtaques()){
         cout<<"- " + ataque.first << " (Daño: " << ataque.second << ") ";
     }
-    cout<<"\nExperiencia para el proximo nivel: Nivel 1: " 
+    cout<<"\nExperiencia necesaria para cada nivel: Nivel 1: " 
         << info.getExperienciaProxNivel()[0] << ", Nivel 2: "
         << info.getExperienciaProxNivel()[1] <<", Nivel 3: "
         << info.getExperienciaProxNivel()[2] << endl;
