@@ -7,8 +7,7 @@ using namespace std;
 
 //construnctor sobrecargado para serializar
 Pokedex::Pokedex(const string& fileName_): fileName(fileName_){
-    //creo el archivo
-    descargarArchivo(); //descarga el archivo si existe
+    //descargarArchivo(); //descarga el archivo si existe
 }
 
 //metodo privado

@@ -46,6 +46,7 @@ int main(){
 
     //descargo el archivo
     Pokedex pokedex2("pokedex.dat");
+    pokedex2.descargarArchivo();
     cout<<"\n=== Pokedex descargado desde el archivo ===\n";
     pokedex2.mostrarTodos();
     return 0;
