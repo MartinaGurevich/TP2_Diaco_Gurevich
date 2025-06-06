@@ -50,3 +50,9 @@ int main(){
     pokedex2.mostrarTodos();
     return 0;
 }
+
+
+/*
+IMPORTANTE -->
+notyfy_one() notify_all() --> si hay thr dormidos notify one depierta un thr , notyfyall dspierta todos
+*/
