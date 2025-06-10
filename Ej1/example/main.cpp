@@ -28,6 +28,9 @@ int main(){
     pokedex.agregarPokemon(p2, info2);
     pokedex.agregarPokemon(p3, info3);
 
+    cout<<"\ngregando Pokemon repetido..."<<endl;
+    pokedex.agregarPokemon(p1, info1); //pokemon repetido
+
     //muestro pokemons
     cout<<"\nMostrando un Pokemon..."<<endl;
     pokedex.mostrar(p1);

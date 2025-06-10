@@ -29,6 +29,11 @@ void Pokedex::mostrar_(Pokemon& pokemon, PokemonInfo& info) const {
 
 //metodos
 void Pokedex::agregarPokemon(const Pokemon& pokemon, const PokemonInfo& info_pokemon, bool serializar) {
+    if(info.find(pokemon) != info.end()) {
+        cout << "¡Pokemon " << pokemon.getNombre() << " ya está en el Pokedex!" << endl;
+        return; // Si el Pokemon ya existe, no lo agregamos
+    }
+    
     info[pokemon] = info_pokemon;
 
     //sobreescribo el archivo cada vez que agrego un pokemon
