@@ -11,7 +11,6 @@ class Despegue{
         //vector de zonas
         mutex zonas[ZONAS]; //array de mutex para proteger las zonas
         mutex m2; //mutex para proteger las impresiones por pantalla
-        vector<jthread> threads;
 
     public:
         //constructor
@@ -19,7 +18,6 @@ class Despegue{
 
         //metodos
         void volar(int i);
-        void simulador();
 
         //destructor
         ~Despegue() = default;

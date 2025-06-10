@@ -5,8 +5,15 @@ using namespace std;
 
 int main(){
 
+    //inicio de simulacion
     Despegue despegue;
-    despegue.simulador();
+    vector<jthread> threads;
+
+    for (int i = 0; i < ZONAS; i++){
+        //creamos los hilos representando a cada Drone
+        threads.emplace_back(&Despegue::volar, &despegue, i);
+
+    }
     
     return 0;
 }

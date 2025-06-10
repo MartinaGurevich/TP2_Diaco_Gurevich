@@ -11,7 +11,7 @@ void Despegue::volar(int i){
     cout<<"Drone "<<i<<" esperando para despegar..."<<endl;
     m2.unlock();
     
-    lock(izq, der);
+    lock(izq, der); //bloqueamos las zonas adyacentes
     
     m2.lock();
     cout<<"Drone "<<i<<" despegando..."<<endl;
@@ -28,10 +28,3 @@ void Despegue::volar(int i){
 
 }
 
-void Despegue::simulador(){
-        for (int i = 0; i < ZONAS; i++){
-            //creamos los hilos representando a cada Drone
-            threads.emplace_back(&Despegue::volar, this, i);
-
-    }
-}
