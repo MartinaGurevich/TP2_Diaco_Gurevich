@@ -11,7 +11,6 @@ void Despegue::volar(int i){
     cout<<"Drone "<<i<<" esperando para despegar..."<<endl;
     m2.unlock();
     
-    //veo si se puede acceder a las zonas para bloquearlas
     lock(izq, der);
     
     m2.lock();
