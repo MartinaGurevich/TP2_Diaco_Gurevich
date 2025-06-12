@@ -11,8 +11,8 @@ class PokemonHash{
 
 class Pokedex{
     private:
-        std::unordered_map<Pokemon, PokemonInfo, PokemonHash> info; //completar
-        std::string fileName; //nombre del archivo para serializar
+        std::unordered_map<Pokemon, PokemonInfo, PokemonHash> info;
+        std::string fileName; //nombre del archivo para cargar los datos
 
         void mostrar_(Pokemon& pokemon, PokemonInfo& info) const;
     
@@ -28,8 +28,8 @@ class Pokedex{
         void mostrar(const Pokemon& pokemon) const; //ver si se pasa por parametro
         void mostrarTodos() const;
         
-        void cargarArchivo(); //serializa el pokedex a un archivo
-        void descargarArchivo(); //deserializa el pokedex desde un archivo
+        void cargarArchivo(); //carga el pokedex a un archivo
+        void descargarArchivo(); //descarga el pokedex desde un archivo
         
         //destructor
         ~Pokedex() = default;

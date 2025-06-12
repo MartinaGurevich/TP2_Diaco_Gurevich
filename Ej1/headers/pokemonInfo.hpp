@@ -13,8 +13,8 @@ class PokemonInfo{
     private:
         string tipo;
         string descripcion;
-        unordered_map<string, int> ataques;//cambiamos de map a unordered
-        vector<int> experienciaProxNivel; //cambiamos a vector de map
+        unordered_map<string, int> ataques;
+        vector<int> experienciaProxNivel;
 
     public:
         //constructor
