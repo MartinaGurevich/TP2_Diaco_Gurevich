@@ -8,14 +8,6 @@
 #include <string>
 using namespace std;
 
-mutex mtx;
-condition_variable condicionEsperada;
-bool terminado = false;
-int sensores_terminados = 0; //contador para llevar registro de aquellos sensores que terminan de realizar tareas
-const int NUM_SENSORES = 3;
-const int NUM_ROBOTS = 3;
-
-
 struct Tarea{
     int idSensor;
     int idTarea;
@@ -29,7 +21,15 @@ struct Tarea{
     }
 };
 
+
+mutex mtx;
+condition_variable condicionEsperada;
+bool terminado = false;
+int sensores_terminados = 0; //contador para llevar registro de aquellos sensores que terminan de realizar tareas
+const int NUM_SENSORES = 3;
+const int NUM_ROBOTS = 3;
 queue<Tarea> cola; //cola de tareas 
+
 
 void Sensor(int idSensor){
     //bucle que genera tareas y las agrega a la cola
