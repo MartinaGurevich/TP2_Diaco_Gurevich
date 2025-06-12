@@ -11,7 +11,7 @@ using namespace std;
 mutex mtx;
 condition_variable condicionEsperada;
 bool terminado = false;
-int sensores_terminados = 0;
+int sensores_terminados = 0; //contador para llevar registro de aquellos sensores que terminan de realizar tareas
 const int NUM_SENSORES = 3;
 const int NUM_ROBOTS = 3;
 
@@ -20,6 +20,8 @@ struct Tarea{
     int idSensor;
     int idTarea;
     string descripcionTarea;
+    
+    //constructor
     Tarea(int idSensor_,  int idTarea_, string descripcionTarea_){
         idSensor = idSensor_;
         idTarea = idTarea_;
@@ -30,46 +32,58 @@ struct Tarea{
 queue<Tarea> cola; //cola de tareas 
 
 void Sensor(int idSensor){
+    //bucle que genera tareas y las agrega a la cola
     for(int i = 1; i <= 3; ++i){
+        
+        //creamos un scope tal que el lock guar se desbloquea
+        //automaticamente al salir de él
         {
-        lock_guard<mutex> lock(mtx);
-        Tarea tarea(idSensor, idSensor*10 +i,"Tarea "+to_string(idSensor*10 +i)+ " fue creada.");
-        cola.push(tarea);
-        cout<<"[Sensor "<< idSensor<<"] "<< tarea.descripcionTarea<<endl; 
-
+            lock_guard<mutex> lock(mtx);
+            Tarea tarea(idSensor, idSensor*10 +i,"Tarea " + to_string(idSensor*10 +i) + " fue creada.");
+            cola.push(tarea); //agrego tarea a la cola
+            cout<<"[Sensor "<< idSensor<<"] "<<tarea.descripcionTarea<<endl; 
         }
         
-        condicionEsperada.notify_all(); //se notifica que el sensor agrego tarea a la cola
-        this_thread::sleep_for(chrono::milliseconds(175)); //lo que tarda en ser creada 
+        condicionEsperada.notify_all(); //se notifica que el sensor termino de agregar tareas a la cola
+        this_thread::sleep_for(chrono::milliseconds(175)); //tiempo de creacion de la tarea
 
     }
+    
     {
-    lock_guard<mutex> lock(mtx);
-    sensores_terminados++;
-    if (sensores_terminados == NUM_SENSORES) {
-        terminado = true;
-        condicionEsperada.notify_all(); // Se notifica que terminó el ultimo sensor.
-        }
+        lock_guard<mutex> lock(mtx);
+        sensores_terminados++; //incremento el contador de sensores que terminaron de generar tareas
+        
+        //en el caso de que todos los sensores hayn terminado, se lo notifica a los robots
+        if (sensores_terminados == NUM_SENSORES) {
+            terminado = true;
+            condicionEsperada.notify_all(); // Se notifica que terminó el ultimo sensor.
+            }
     }
 
 }
 
 void Robot( int idRobot){
+    //Mientras que haya sensores agregando tareas...
     while(true){
         unique_lock<mutex> lockUnique(mtx);
-        condicionEsperada.wait(lockUnique, [] { return !cola.empty() || terminado; }); //espero que llegue el notify
-        if (!cola.empty()) { // Si hay productos en la cola…
-            Tarea tarea = cola.front();
+
+        //el robot espera a que haya algo en la cola, o que los sensores hayan terminado
+        condicionEsperada.wait(lockUnique, [] { return !cola.empty() || terminado; });
+        
+        //En el caso que haya productos en la cola --> se ejecuta la primer tarea en espera
+        if (!cola.empty()) {
+            Tarea tarea = cola.front(); //accedemos a la tarea
             cola.pop();
             cout << "[Robot " << idRobot << "] Ejecutando Tarea " << tarea.idTarea << endl;
-            lockUnique.unlock(); // Para que la cola se use en produccion
-            this_thread::sleep_for(chrono::milliseconds(250));
+            lockUnique.unlock();
+            
+            this_thread::sleep_for(chrono::milliseconds(250)); //tiempo de procesamiento de la tarea
 
-        }else if (terminado) // Salir si no hay elementos y…
-            break; //… ya terminó la producción
-        }
-    cout << "Robot "<<idRobot<<" ha finalizado sus tareas.\n";
+        }else if (terminado) break; //se rompe el ciclo cuando lo sensores terminaron
     }
+    
+    cout << "Robot "<<idRobot<<" ha finalizado sus tareas.\n";
+}
 
 
 int main() {
@@ -80,5 +94,6 @@ int main() {
     vector<jthread> robots;
     for (int i = 0; i < NUM_ROBOTS; ++i)
         robots.emplace_back(Robot, i + 1);
+    
     return 0;
 }
