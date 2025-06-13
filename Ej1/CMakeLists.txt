@@ -20,12 +20,17 @@ add_executable(PokedexExe ${MAIN_FILE} ${SRC_FILES})
 # Directorio de salida del ejecutable
 set_target_properties(PokedexExe PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+# Agregar warnings comunes para compilar con g++
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(PokedexExe PRIVATE 
+        -Wall        # Habilita todos los warnings importantes
+        -Wextra      # Más warnings adicionales
+        -Wpedantic   # Warnings por cosas que no son estándar
+    )
+endif()
 
 
-COMANDOS 
-mkdir build
-cd build
-cmake ..
-make
+
+
 
 
