@@ -95,13 +95,13 @@ void Robot( int idRobot){
 
 int main() {
     
-    vector<jthread> sensores;
-    for (int i = 0; i < NUM_SENSORES; ++i)
-        sensores.emplace_back(Sensor, i + 1);
-        
     vector<jthread> robots;
     for (int i = 0; i < NUM_ROBOTS; ++i)
         robots.emplace_back(Robot, i + 1);
+    
+    vector<jthread> sensores;
+    for (int i = 0; i < NUM_SENSORES; ++i)
+        sensores.emplace_back(Sensor, i + 1);
         
     
     return 0;
