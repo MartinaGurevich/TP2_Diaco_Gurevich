@@ -21,7 +21,6 @@ class Pokedex{
         Pokedex() = default;
         Pokedex(const std::string& fileName_); //sobrecarga de sontructor para serializar
  
-        
         //metodos
         void agregarPokemon(const Pokemon& pokemon, const PokemonInfo& info_pokemon, bool serializar = true);
         void eliminarPokemon(const Pokemon& pokemon);
