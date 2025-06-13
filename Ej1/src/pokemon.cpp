@@ -7,8 +7,6 @@ using namespace std;
 //constructor
 Pokemon::Pokemon(const string nombre_, int experiencia_): nombre(nombre_), experiencia(experiencia_){};
 
-Pokemon::Pokemon(const Pokemon& other): nombre(other.nombre), experiencia(other.experiencia) {}
-
 //getters
 string Pokemon::getNombre() const {
     return nombre;

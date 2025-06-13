@@ -11,7 +11,6 @@ class Pokemon{
     public:
         //constructor
         Pokemon(const string nombre_, int experiencia_);
-        Pokemon(const Pokemon& other); //constructor de copia
         
         //getters
         string getNombre() const;
