@@ -50,8 +50,8 @@ void Sensor(int idSensor){
             cout<<"[Sensor "<< idSensor<<"] "<<tarea.descripcionTarea<<" fue creada."<<endl; 
         }
         
-        condicionEsperada.notify_one(); //se notifica que el sensor termino de agregar tareas a la cola
         this_thread::sleep_for(chrono::milliseconds(175)); //tiempo de creacion de la tarea
+        condicionEsperada.notify_one(); //se notifica que el sensor termino de agregar tareas a la cola
 
     }
     
