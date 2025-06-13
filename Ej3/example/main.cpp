@@ -50,7 +50,7 @@ void Sensor(int idSensor){
             cout<<"[Sensor "<< idSensor<<"] "<<tarea.descripcionTarea<<" fue creada."<<endl; 
         }
         
-        condicionEsperada.notify_all(); //se notifica que el sensor termino de agregar tareas a la cola
+        condicionEsperada.notify_one(); //se notifica que el sensor termino de agregar tareas a la cola
         this_thread::sleep_for(chrono::milliseconds(175)); //tiempo de creacion de la tarea
 
     }
@@ -94,15 +94,15 @@ void Robot( int idRobot){
 
 
 int main() {
-
+    
     vector<jthread> sensores;
     for (int i = 0; i < NUM_SENSORES; ++i)
         sensores.emplace_back(Sensor, i + 1);
-    
+        
     vector<jthread> robots;
     for (int i = 0; i < NUM_ROBOTS; ++i)
         robots.emplace_back(Robot, i + 1);
-    
+        
     
     return 0;
 }
