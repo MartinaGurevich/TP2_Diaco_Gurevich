@@ -35,6 +35,9 @@ class PokemonInfo{
         void serializarInfo(ofstream& out) const;
         void deserializarInfo(ifstream& in);
 
+        //sobrecarga del operador == para guardar en unordered_map
+        PokemonInfo& operator=(const PokemonInfo& other);
+
         //destructor
         ~PokemonInfo() = default;
 };

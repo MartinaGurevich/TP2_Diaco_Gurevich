@@ -111,3 +111,14 @@ void PokemonInfo::deserializarInfo(ifstream& in) {
     experienciaProxNivel.resize(expSize);
     in.read(reinterpret_cast<char*>(experienciaProxNivel.data()), expSize*sizeof(int));
 }
+
+//sobrecarga del operador = para guardar en unordered_map
+PokemonInfo& PokemonInfo::operator=(const PokemonInfo& other) {
+    if (this != &other) {
+        tipo = other.tipo;
+        descripcion = other.descripcion;
+        ataques = other.ataques;
+        experienciaProxNivel = other.experienciaProxNivel;
+    }
+    return *this;
+}

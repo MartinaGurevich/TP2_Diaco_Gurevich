@@ -111,7 +111,7 @@ void Pokedex::descargarArchivo() {
         size_t infoSize;
         in.read(reinterpret_cast<char*>(&infoSize), sizeof(infoSize));
 
-        for(int i = 0; i < infoSize; ++i){
+        for(size_t  i = 0; i < infoSize; ++i){
             Pokemon pokemon("", 0); //creamos un pokemon temporal
             PokemonInfo pokemon_info;
             pokemon.deserializarPoke(in);
