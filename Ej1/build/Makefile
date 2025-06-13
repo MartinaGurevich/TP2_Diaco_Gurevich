@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named PokedexExe
+# Target rules for targets named programa
 
 # Build rule for target.
-PokedexExe: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PokedexExe
-.PHONY : PokedexExe
+programa: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 programa
+.PHONY : programa
 
 # fast build rule for target.
-PokedexExe/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/build
-.PHONY : PokedexExe/fast
+programa/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/build
+.PHONY : programa/fast
 
 example/main.o: example/main.cpp.o
 .PHONY : example/main.o
 
 # target to build an object file
 example/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/example/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/example/main.cpp.o
 .PHONY : example/main.cpp.o
 
 example/main.i: example/main.cpp.i
@@ -142,7 +142,7 @@ example/main.i: example/main.cpp.i
 
 # target to preprocess a source file
 example/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/example/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/example/main.cpp.i
 .PHONY : example/main.cpp.i
 
 example/main.s: example/main.cpp.s
@@ -150,7 +150,7 @@ example/main.s: example/main.cpp.s
 
 # target to generate assembly for a file
 example/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/example/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/example/main.cpp.s
 .PHONY : example/main.cpp.s
 
 src/pokedex.o: src/pokedex.cpp.o
@@ -158,7 +158,7 @@ src/pokedex.o: src/pokedex.cpp.o
 
 # target to build an object file
 src/pokedex.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokedex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokedex.cpp.o
 .PHONY : src/pokedex.cpp.o
 
 src/pokedex.i: src/pokedex.cpp.i
@@ -166,7 +166,7 @@ src/pokedex.i: src/pokedex.cpp.i
 
 # target to preprocess a source file
 src/pokedex.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokedex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokedex.cpp.i
 .PHONY : src/pokedex.cpp.i
 
 src/pokedex.s: src/pokedex.cpp.s
@@ -174,7 +174,7 @@ src/pokedex.s: src/pokedex.cpp.s
 
 # target to generate assembly for a file
 src/pokedex.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokedex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokedex.cpp.s
 .PHONY : src/pokedex.cpp.s
 
 src/pokemon.o: src/pokemon.cpp.o
@@ -182,7 +182,7 @@ src/pokemon.o: src/pokemon.cpp.o
 
 # target to build an object file
 src/pokemon.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokemon.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokemon.cpp.o
 .PHONY : src/pokemon.cpp.o
 
 src/pokemon.i: src/pokemon.cpp.i
@@ -190,7 +190,7 @@ src/pokemon.i: src/pokemon.cpp.i
 
 # target to preprocess a source file
 src/pokemon.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokemon.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokemon.cpp.i
 .PHONY : src/pokemon.cpp.i
 
 src/pokemon.s: src/pokemon.cpp.s
@@ -198,7 +198,7 @@ src/pokemon.s: src/pokemon.cpp.s
 
 # target to generate assembly for a file
 src/pokemon.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokemon.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokemon.cpp.s
 .PHONY : src/pokemon.cpp.s
 
 src/pokemonInfo.o: src/pokemonInfo.cpp.o
@@ -206,7 +206,7 @@ src/pokemonInfo.o: src/pokemonInfo.cpp.o
 
 # target to build an object file
 src/pokemonInfo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokemonInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokemonInfo.cpp.o
 .PHONY : src/pokemonInfo.cpp.o
 
 src/pokemonInfo.i: src/pokemonInfo.cpp.i
@@ -214,7 +214,7 @@ src/pokemonInfo.i: src/pokemonInfo.cpp.i
 
 # target to preprocess a source file
 src/pokemonInfo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokemonInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokemonInfo.cpp.i
 .PHONY : src/pokemonInfo.cpp.i
 
 src/pokemonInfo.s: src/pokemonInfo.cpp.s
@@ -222,7 +222,7 @@ src/pokemonInfo.s: src/pokemonInfo.cpp.s
 
 # target to generate assembly for a file
 src/pokemonInfo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/src/pokemonInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/pokemonInfo.cpp.s
 .PHONY : src/pokemonInfo.cpp.s
 
 # Help Target
@@ -233,7 +233,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... PokedexExe"
+	@echo "... programa"
 	@echo "... example/main.o"
 	@echo "... example/main.i"
 	@echo "... example/main.s"

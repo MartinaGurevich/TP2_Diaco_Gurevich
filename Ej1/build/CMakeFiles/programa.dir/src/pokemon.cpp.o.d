@@ -1,7 +1,7 @@
-CMakeFiles/PokedexExe.dir/src/pokemonInfo.cpp.o: \
- /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/src/pokemonInfo.cpp \
+CMakeFiles/programa.dir/src/pokemon.cpp.o: \
+ /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/src/pokemon.cpp \
  /usr/include/stdc-predef.h \
- /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/src/../headers/pokemonInfo.hpp \
+ /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/src/../headers/pokemon.hpp \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -121,14 +121,8 @@ CMakeFiles/PokedexExe.dir/src/pokemonInfo.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /usr/include/c++/13/bits/ranges_util.h /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h \
- /usr/include/c++/13/ext/aligned_buffer.h \
- /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
- /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/iostream \
- /usr/include/c++/13/ostream /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/ranges_util.h /usr/include/c++/13/fstream \
+ /usr/include/c++/13/istream /usr/include/c++/13/ios \
  /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
@@ -161,18 +155,9 @@ CMakeFiles/PokedexExe.dir/src/pokemonInfo.cpp.o: \
  /usr/include/c++/13/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
  /usr/include/c++/13/bits/locale_facets.tcc \
- /usr/include/c++/13/bits/basic_ios.tcc \
- /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/vector \
- /usr/include/c++/13/bits/stl_uninitialized.h \
- /usr/include/c++/13/bits/stl_vector.h \
- /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/unordered_map \
- /usr/include/c++/13/bits/unordered_map.h \
- /usr/include/c++/13/bits/hashtable.h \
- /usr/include/c++/13/bits/hashtable_policy.h \
- /usr/include/c++/13/bits/enable_special_members.h \
- /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/basic_ios.tcc /usr/include/c++/13/ostream \
+ /usr/include/c++/13/bits/ostream.tcc \
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc

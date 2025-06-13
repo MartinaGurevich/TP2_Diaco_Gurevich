@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=PokedexProject
+CMAKE_PROJECT_NAME:STATIC=programa
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -216,13 +216,13 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-PokedexProject_BINARY_DIR:STATIC=/VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/build
+programa_BINARY_DIR:STATIC=/VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/build
 
 //Value Computed by CMake
-PokedexProject_IS_TOP_LEVEL:STATIC=ON
+programa_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-PokedexProject_SOURCE_DIR:STATIC=/VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1
+programa_SOURCE_DIR:STATIC=/VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1
 
 
 ########################

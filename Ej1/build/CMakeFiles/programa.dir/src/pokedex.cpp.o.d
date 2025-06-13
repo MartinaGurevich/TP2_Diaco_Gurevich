@@ -1,4 +1,4 @@
-CMakeFiles/PokedexExe.dir/src/pokedex.cpp.o: \
+CMakeFiles/programa.dir/src/pokedex.cpp.o: \
  /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/src/pokedex.cpp \
  /usr/include/stdc-predef.h \
  /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/src/../headers/pokedex.hpp \

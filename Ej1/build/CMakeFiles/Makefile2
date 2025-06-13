@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/PokedexExe.dir/all
+all: CMakeFiles/programa.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/PokedexExe.dir/clean
+clean: CMakeFiles/programa.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/PokedexExe.dir
+# Target rules for target CMakeFiles/programa.dir
 
 # All Build rule for target.
-CMakeFiles/PokedexExe.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target PokedexExe"
-.PHONY : CMakeFiles/PokedexExe.dir/all
+CMakeFiles/programa.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target programa"
+.PHONY : CMakeFiles/programa.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/PokedexExe.dir/rule: cmake_check_build_system
+CMakeFiles/programa.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PokedexExe.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/programa.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /VSCODE_WSL/TP2_paradigmas/TP2_Diaco_Gurevich/Ej1/build/CMakeFiles 0
-.PHONY : CMakeFiles/PokedexExe.dir/rule
+.PHONY : CMakeFiles/programa.dir/rule
 
 # Convenience name for target.
-PokedexExe: CMakeFiles/PokedexExe.dir/rule
-.PHONY : PokedexExe
+programa: CMakeFiles/programa.dir/rule
+.PHONY : programa
 
 # clean rule for target.
-CMakeFiles/PokedexExe.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokedexExe.dir/build.make CMakeFiles/PokedexExe.dir/clean
-.PHONY : CMakeFiles/PokedexExe.dir/clean
+CMakeFiles/programa.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/clean
+.PHONY : CMakeFiles/programa.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
