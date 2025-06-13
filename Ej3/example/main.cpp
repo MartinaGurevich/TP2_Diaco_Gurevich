@@ -85,10 +85,11 @@ void Robot( int idRobot){
             
             this_thread::sleep_for(chrono::milliseconds(250)); //tiempo de procesamiento de la tarea
 
-        }else if (terminado) break; //se rompe el ciclo cuando lo sensores terminaron
+        }else if (terminado){ break;} //se rompe el ciclo cuando lo sensores terminaron
     }
-    
+    mtx.lock();
     cout << "Robot "<<idRobot<<" ha finalizado sus tareas."<<endl;
+    mtx.unlock();
 }
 
 
