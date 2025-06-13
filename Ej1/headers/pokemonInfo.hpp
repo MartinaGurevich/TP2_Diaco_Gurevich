@@ -23,8 +23,7 @@ class PokemonInfo{
            unordered_map<string, int> ataques_,
            vector<int> experienciaProxNivel_
         );
-        PokemonInfo(const PokemonInfo& other); //constructor de copia
-
+        
         //getters
         string getTipo() const;
         string getDescripcion() const;
@@ -34,9 +33,6 @@ class PokemonInfo{
         //serializar y deserializar
         void serializarInfo(ofstream& out) const;
         void deserializarInfo(ifstream& in);
-
-        //sobrecarga del operador = para guardar en unordered_map
-        PokemonInfo& operator=(const PokemonInfo& other);
 
         //destructor
         ~PokemonInfo() = default;

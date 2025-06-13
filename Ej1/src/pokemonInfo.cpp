@@ -16,13 +16,6 @@ PokemonInfo::PokemonInfo(const string tipo_, const string descripcion_,
         ataques(ataques_),
         experienciaProxNivel(experienciaProxNivel_){};
 
-PokemonInfo::PokemonInfo(const PokemonInfo& other):
-        tipo(other.tipo), 
-        descripcion(other.descripcion), 
-        ataques(other.ataques),
-        experienciaProxNivel(other.experienciaProxNivel) {}
-
-
 //getters
 string PokemonInfo::getTipo() const{
     return tipo;
@@ -110,15 +103,4 @@ void PokemonInfo::deserializarInfo(ifstream& in) {
     in.read(reinterpret_cast<char*>(&expSize), sizeof(expSize));
     experienciaProxNivel.resize(expSize);
     in.read(reinterpret_cast<char*>(experienciaProxNivel.data()), expSize*sizeof(int));
-}
-
-//sobrecarga del operador = para guardar en unordered_map
-PokemonInfo& PokemonInfo::operator=(const PokemonInfo& other) {
-    if (this != &other) {
-        tipo = other.tipo;
-        descripcion = other.descripcion;
-        ataques = other.ataques;
-        experienciaProxNivel = other.experienciaProxNivel;
-    }
-    return *this;
 }
