@@ -11,7 +11,8 @@ void Despegue::volar(int i){
     cout<<"Drone "<<i<<" esperando para despegar..."<<endl;
     m2.unlock();
     
-    lock(izq, der); //bloqueamos las zonas adyacentes
+    lock(izq, der); //bloqueamos las zonas adyacentes. Si no se puede bloquear, espera hasta que se liberen ambas zonas
+    //una vez bloqueadas, se desbloquean en el orden correcto para evitar deadlocks
     
     m2.lock();
     cout<<"Drone "<<i<<" despegando..."<<endl;
