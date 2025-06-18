@@ -2,7 +2,7 @@
 using namespace std;
 
 
-void Despegue::volar(int i){
+void Despegue::Volar(int i){
     //establecemos las zonas a bloquear
     //accedemos a la direccion de memoria para evitar copiar el mutex, pues no se pueden copiar
     mutex& izq = zonas[i];

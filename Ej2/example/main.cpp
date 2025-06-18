@@ -12,7 +12,7 @@ int main(){
     for (int i = 0; i < ZONAS; i++){
         //creamos los hilos representando a cada Drone
         //e inicia la etapa de despegue
-        threads.emplace_back(&Despegue::volar, &despegue, i);
+        threads.emplace_back(&Despegue::Volar, &despegue, i);
 
     }
     

@@ -17,7 +17,7 @@ class Despegue{
         Despegue() = default;
 
         //metodos
-        void volar(int i);
+        void Volar(int i);
 
         //destructor
         ~Despegue() = default;
