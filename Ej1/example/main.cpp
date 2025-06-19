@@ -2,7 +2,7 @@
 
 int main(){
    //creo pokedex y cargo el archivo
-    Pokedex pokedex("pokedex.dat");
+    Pokedex pokedex("../build/bin/pokedex.dat");
 
     //pokemon1
     Pokemon p1("Squirtle", 100);
@@ -48,8 +48,7 @@ int main(){
     pokedex.mostrar(p2);
 
     //descargo el archivo
-    Pokedex pokedex2("pokedex.dat");
-    pokedex2.descargarArchivo();
+    Pokedex pokedex2("../build/bin/pokedex.dat", false); //no serializo, solo descargo
     cout<<"\n=== Pokedex descargado desde el archivo ===\n";
     pokedex2.mostrarTodos();
     return 0;

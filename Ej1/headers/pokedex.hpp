@@ -19,7 +19,8 @@ class Pokedex{
     public:
         //constructor
         Pokedex() = default;
-        Pokedex(const std::string& fileName_); //sobrecarga de sontructor para serializar
+        Pokedex(const std::string& fileName_, bool serializar = true); //sobrecarga de sontructor para serializar
+        //el bool será false si lo que se quiere es descargar el archivo,
  
         //metodos
         void agregarPokemon(const Pokemon& pokemon, const PokemonInfo& info_pokemon, bool serializar = true);

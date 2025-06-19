@@ -6,8 +6,11 @@
 using namespace std;
 
 //construnctor sobrecargado para serializar
-Pokedex::Pokedex(const string& fileName_): fileName(fileName_){
-    //descargarArchivo(); //descarga el archivo si existe
+Pokedex::Pokedex(const string& fileName_, bool serializar): fileName(fileName_){
+    
+    //si el archivo ya existe, se descarga su información
+    if (!serializar) descargarArchivo();
+
 }
 
 //metodo privado
