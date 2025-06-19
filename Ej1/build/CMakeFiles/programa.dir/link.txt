@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/programa.dir/example/main.cpp.o CMakeFiles/programa.dir/src/pokedex.cpp.o CMakeFiles/programa.dir/src/pokemon.cpp.o CMakeFiles/programa.dir/src/pokemonInfo.cpp.o -o bin/programa 
